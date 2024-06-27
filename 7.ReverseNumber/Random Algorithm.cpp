@@ -11,7 +11,7 @@ template <class T>
 int ReadPositiveNumber(string Message)
 {
 	cout << Message;
-	return clsInputValidate<int>::ReadPositiveNumber(); //1234
+	return clsInputValidate<int>::ReadPositiveNumber(); 
 }
 
 int ReverseNumber(int Number)
