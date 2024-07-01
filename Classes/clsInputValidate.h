@@ -48,6 +48,19 @@ public:
 		return Number;
 	}
 
+	static T ReadPositiveNumber(string ErrorMessage = "Invalid Number, Enter a Positive Number : \n")
+	{
+		T Number = ReadNumber();
+
+		while (Number <= 0)
+		{
+			cout << ErrorMessage;
+			Number = ReadNumber();
+		} 
+
+		return Number;
+	}
+
 	static T ReadNumberBetween(T From, T To, string ErrorMessage = "Number is not within range, Enter Again :\n")
 	{
 		T Number = ReadNumber();
