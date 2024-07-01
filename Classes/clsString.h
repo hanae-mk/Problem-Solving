@@ -1,5 +1,4 @@
-#pragma once //Load 1 time in memory explication in this video min 9
-
+#pragma once 
 #include <iostream>
 #include <vector>
 using namespace std;
