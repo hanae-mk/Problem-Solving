@@ -1,4 +1,4 @@
-
+//Hanae Messari Khali
 #pragma once
 
 #include <iostream>
@@ -14,6 +14,7 @@ class clsUtil
 public:
 
 	enum enCharType { SmallLetter = 1, CapitalLetter = 2, Digit = 3, SpecialCharacter = 4, Mix = 5 };
+	enum enNumberType { Prime = 1, NotPrime = 2 };
 
 	static void Srand()
 	{
@@ -209,6 +210,19 @@ public:
 		return FreqCount;
 	}
 
+	static enNumberType CheckNumberType(int Number)
+	{
 
+		int M = round(Number / 2);
+
+		for (int Counter = 2; Counter <= M; Counter++)
+		{
+			if (Number % Counter == 0)
+				return enNumberType::NotPrime;
+		}
+
+		return enNumberType::Prime;
+
+	}
 
 };
