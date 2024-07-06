@@ -225,4 +225,33 @@ public:
 
 	}
 
+static void FillMatrixWithRandomNumbers(int arr[3][3], int Rows, int Cols)
+{
+
+	for (int i = 0; i < Rows; i++)
+	{
+
+		for (int j = 0; j < Cols; j++)
+		{
+			arr[i][j] = RandomNumber(1, 100);
+		}
+	}
+
+}
+
+static void PrintMatrix(int arr[3][3], int Rows, int Cols)
+{
+	for (int i = 0; i < Rows; i++)
+	{
+
+		for (int j = 0; j < Cols; j++)
+		{
+			cout << setw(3) << arr[i][j] << "   ";
+			}
+
+			cout << endl;
+	                }
+		}
+	}
+
 };
