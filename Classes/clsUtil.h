@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 #include "clsDate.h"
 
 using namespace std;
@@ -225,33 +226,50 @@ public:
 
 	}
 
-static void FillMatrixWithRandomNumbers(int arr[3][3], int Rows, int Cols)
-{
-
-	for (int i = 0; i < Rows; i++)
+	static void FillMatrixWithRandomNumbers(int arr[3][3], int Rows, int Cols)
 	{
 
-		for (int j = 0; j < Cols; j++)
+		for (int i = 0; i < Rows; i++)
 		{
-			arr[i][j] = RandomNumber(1, 100);
+
+			for (int j = 0; j < Cols; j++)
+			{
+				arr[i][j] = RandomNumber(1, 100);
+			}
 		}
+
 	}
 
-}
-
-static void PrintMatrix(int arr[3][3], int Rows, int Cols)
-{
-	for (int i = 0; i < Rows; i++)
+	static void PrintMatrix(int arr[3][3], int Rows, int Cols)
 	{
-
-		for (int j = 0; j < Cols; j++)
+		for (int i = 0; i < Rows; i++)
 		{
-			cout << setw(3) << arr[i][j] << "   ";
+
+			for (int j = 0; j < Cols; j++)
+			{
+				cout << setw(3) << arr[i][j] << "   ";
 			}
 
 			cout << endl;
-	                }
 		}
+	}
+
+	static string UpperFirstLetterOfEachWord(string S1)
+	{
+		bool IsFirstLetter = true;
+
+		for (int i = 0; i < S1.length(); i++)
+		{
+
+			if (S1[i] != ' ' && IsFirstLetter)
+			{
+				S1[i] = toupper(S1[i]);
+			}
+
+			IsFirstLetter = (S1[i] == ' ') ? true : false;
+		}
+
+		return S1;
 	}
 
 };
