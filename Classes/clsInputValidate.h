@@ -78,11 +78,6 @@ public:
 
 	}
 
-	static bool IsValidDate(clsDate Date)
-	{
-		return clsDate::IsValidDate(Date);
-	}
-
 	static string ReadString()
 	{
 		string S1 = "";
