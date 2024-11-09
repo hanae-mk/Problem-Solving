@@ -6,7 +6,7 @@
 #include <iomanip>
 
 using namespace std;
-const string ClientsFileName = "Clients.txt";
+const string ClientsFileName = "UpdateClientsFile.txt";
 
 struct stClient
 {
