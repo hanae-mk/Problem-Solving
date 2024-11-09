@@ -1,34 +1,61 @@
-//Hanae Messari Khali
-#include <iostream>
-#include "clsUtil.h"
-#include "clsInputValidate.h"
 
+#include <iostream>
+#include <cmath>
 using namespace std;
 
 enum enNumberType { Prime = 1, NotPrime = 2 };
 
-void PrintPrimeNumbersFrom1ToN(int Number)
+int ReadPositiveNumber(string Message)
+{
+	int Number;
+
+	do
+	{
+		cout << Message << endl;
+		cin >> Number;
+
+	} while (Number <= 0);
+
+	return Number;
+
+}
+
+enNumberType CheckNumberType(int Number)
 {
 
-	cout << "\nPrime Numbers From " << 1 << " To " << Number << " : " << endl;
+	int M = round(Number / 2); 
+
+	for (int Counter = 2; Counter <= M; Counter++)
+	{
+		if (Number % Counter == 0)
+			return enNumberType::NotPrime;
+
+	}
+
+	return enNumberType::Prime;
+
+}
+
+void PrintPrimeNumbersFrom1ToN(int Number)
+{
+	
+	cout << "Prime Numbers From " << 1 << " To " << Number << " : " << endl;
 
 	for (int i = 1; i <= Number; i++)
 	{
-		if (clsUtil<int>::CheckNumberType(i) == enNumberType::Prime)
+		if ( CheckNumberType(i) == enNumberType::Prime)
 		{
-			cout << i << endl;
-		}
+	     	cout << i << endl;
+	    }
 	}
 }
 
 int main()
 {
-	int Number = clsInputValidate<int>::ReadPositiveNumber("\nPlease Enter a Positive Number ?");
+	PrintPrimeNumbersFrom1ToN(ReadPositiveNumber("Please enter a positive number ? "));
 
-	PrintPrimeNumbersFrom1ToN(Number);
-
-	system("pause>0");
 	return 0;
+	
 }
 
 
