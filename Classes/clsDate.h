@@ -137,7 +137,7 @@ public:
 
 	static clsDate GetDateFromDayOrderInYear(short DayOrderInYear, short Year)
 	{
-		short RemainingDays = DayOrderInYear; //Ayam li b9aw
+		short RemainingDays = DayOrderInYear;  
 		short MonthDays = 0;
 
 		clsDate Date;
@@ -373,7 +373,7 @@ public:
 
 	static clsDate GetDateAfterAddingDays(clsDate& Date, short Days)
 	{
-		//389
+		 
 		short RemainingDays = Days + DaysFromTheBeginningOfTheYear(Date.Day, Date.Month, Date.Year);// 30 + 359
 		short MonthDays = 0;
 
@@ -679,9 +679,9 @@ public:
 
 	static clsDate DecreaseDateByOneDay(clsDate& Date)
 	{
-		if (Date.Day == 1) //I Used Function 
+		if (Date.Day == 1)  
 		{
-			if (Date.Month == 1) //I Used Function 
+			if (Date.Month == 1)  
 			{
 				Date.Day = 31;
 				Date.Month = 12;
@@ -1066,12 +1066,3 @@ public:
 	}
 
 };
-
-
-
-
-
-
-
-
-
