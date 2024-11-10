@@ -1,10 +1,10 @@
+//Code Written By:
 //Hanae Messari Khali
-#pragma once
 
+#pragma once
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include "clsDate.h"
 
 using namespace std;
 
@@ -158,7 +158,7 @@ public:
 		return t;
 	}
 
-	static string EncryptText(string Text, short EncryptionKey) //jcpcg
+	static string EncryptText(string Text, short EncryptionKey)  
 	{
 		for (int i = 0; i < Text.length(); i++)
 		{
@@ -168,7 +168,7 @@ public:
 		return Text;
 	}
 
-	static string DecryptText(string Text, short EncryptionKey) //hanae
+	static string DecryptText(string Text, short EncryptionKey)  
 	{
 		for (int i = 0; i < Text.length(); i++)
 		{
@@ -197,10 +197,10 @@ public:
 	{
 		short Remainder = 0, FreqCount = 0;
 
-		while (Number > 0) 
+		while (Number > 0)
 		{
-			Remainder = Number % 10; 
-			Number = Number / 10; 
+			Remainder = Number % 10;
+			Number = Number / 10;
 
 			if (Remainder == DigitToCheck)
 			{
