@@ -1,3 +1,6 @@
+//Code Written By:
+//Hanae Messari Khali
+
 #pragma once
 
 #include <iostream>
@@ -16,15 +19,10 @@ public:
 
 	static bool IsDateBetween(clsDate Date, clsDate From, clsDate To)
 	{
-		//Date>= From && Date <= To 
-		//26/4>= 1/1  && 26/4 <= 31/12
 
 		if (clsDate::IsDate1AfterDate2(Date, From) || clsDate::IsDate1EqualDate2(Date, From)
 			&& clsDate::IsDate1BeforeDate2(Date, To) || clsDate::IsDate1EqualDate2(Date, To))
 			return true;
-
-		//Date >= To && Date <= From  
-		//26/4 >= 1/1 && 26/4 <= 31/12
 
 		if (clsDate::IsDate1AfterDate2(Date, To) || clsDate::IsDate1EqualDate2(Date, To)
 			&& clsDate::IsDate1BeforeDate2(Date, From) || clsDate::IsDate1EqualDate2(Date, From))
@@ -52,7 +50,7 @@ public:
 
 	static T ReadPositiveNumber(string Message, string ErrorMessage = "Invalid Number, Enter a Positive Number : ")
 	{
-		
+
 		T Number = ReadNumber(Message);
 
 		while (Number <= 0)
@@ -87,5 +85,4 @@ public:
 
 
 };
-
 
