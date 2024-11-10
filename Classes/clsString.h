@@ -1,3 +1,4 @@
+
 #pragma once 
 #include <iostream>
 #include <vector>
@@ -11,23 +12,22 @@ private:
 
 public:
 
-	clsString() //Default Constructor if I make an object type clsString class and I didn't sent anything as parameter so it's returns empty "".
+	clsString() 
 	{
 		_Value = "";
 	}
 
-	clsString(string Value) //Parameterized Contructor
+	clsString(string Value) 
 	{
 		_Value = Value;
 	}
 
-	//Every Property have 3 things : set function, get function and declaration specification
 	void SetValue(string Value)
 	{
 		_Value = Value;
 	}
 
-	string GetValue() //GetValue
+	string GetValue()
 	{
 		return _Value;
 	}
@@ -44,10 +44,6 @@ public:
 		return _Value.length();
 	}
 
-	//This Static Member Function is a shared Function to all classes 
-	//we can call it without having an object
-	//We can use it generally
-	//Doesn't Affect the object
 	static short CountWords(string S1)
 	{
 		string delim = " ";
@@ -75,7 +71,6 @@ public:
 		return Counter;
 	}
 
-	//Affect the object
 	short CountWords()
 	{
 		return CountWords(_Value);
@@ -100,7 +95,6 @@ public:
 
 	void UpperFirstLetterOfEachWord()
 	{
-		//no need to return value, this function will directly update the object value
 		_Value = UpperFirstLetterOfEachWord(_Value);
 	}
 
@@ -147,6 +141,7 @@ public:
 		{
 			S1[i] = tolower(S1[i]);
 		}
+
 		return S1;
 	}
 
@@ -155,8 +150,6 @@ public:
 		_Value = LowerAllString(_Value);
 	}
 
-	//We have just the static method because if the user would the invert a letter he call 
-	//only the class not the object because the object should have a string not just a charachter
 	static char InvertLetterCase(char char1)
 	{
 		return isupper(char1) ? tolower(char1) : toupper(char1);
@@ -180,7 +173,7 @@ public:
 		_Value = InvertAllLettersCase(_Value);
 	}
 
-	enum enWhatToCount { CapitalLetters = 0, SmallLetters = 1, All = 3 }; //You can add enums in your class
+	enum enWhatToCount { CapitalLetters = 0, SmallLetters = 1, All = 3 }; 
 
 	static short CountLetters(string S1, enWhatToCount WhatToCount)
 	{
@@ -265,8 +258,8 @@ public:
 			}
 			else
 			{
-				if (tolower(S1[i]) == tolower(Letter))//Here is the trick we convert the S1[i] and letter that the user entered to small or capital letters
-					Counter++;                        //Case Insensitive
+				if (tolower(S1[i]) == tolower(Letter))
+					Counter++;                        
 			}
 		}
 
@@ -278,8 +271,6 @@ public:
 		return CountSpecificLetter(_Value, Letter, MatchCase);
 	}
 
-	//We have just the static method because if the user would the invert a letter he call 
-	//only the class not the object because the object should have a string not just a charachter
 	static bool IsVowel(char char1)
 	{
 		char1 = tolower(char1);
@@ -308,7 +299,7 @@ public:
 	static vector <string> Split(string S1, string Delim)
 	{
 		vector <string> vString;
-		string sWord; //or token (Each word is a token)
+		string sWord; 
 		short pos = 0;
 
 		while ((pos = S1.find(Delim)) != std::string::npos)
@@ -316,9 +307,9 @@ public:
 
 			sWord = S1.substr(0, pos);
 
-			if (sWord != "") //Not Equal Nothing
+			if (sWord != "") 
 			{
-				vString.push_back(sWord);//push back means add to vector
+				vString.push_back(sWord);
 
 			}
 
@@ -387,8 +378,6 @@ public:
 		_Value = Trim(_Value);
 	}
 
-	//In these 2 functions Join String we only made static functions because there is nothing inside 
-	//object I would make joining we usually receive array or vector to make join string and not string
 	static string JoinString(vector <string> vString, string Delim)
 	{
 		string S1 = "";
@@ -403,7 +392,7 @@ public:
 
 	static string JoinString(string arrString[], short Length, string Delim)
 	{
-		string S1 = ""; //Local Variable
+		string S1 = "";
 
 		for (short i = 0; i < Length; i++)
 		{
@@ -421,7 +410,6 @@ public:
 
 		vString = Split(S1, " ");
 
-		//declare iterator
 		vector <string>::iterator iter = vString.end();
 
 		while (iter != vString.begin())
@@ -430,13 +418,13 @@ public:
 			S2 += *iter + " ";
 		}
 
-		S2 = S2.substr(0, S2.length() - 1); //remove last space;
+		S2 = S2.substr(0, S2.length() - 1); 
 
 		return S2;
 
 	}
 
-	void ReverseWordsInString() //Every Time you see void, that means that you will modify the value of object itself
+	void ReverseWordsInString() 
 	{
 		_Value = ReverseWordsInString(_Value);
 	}
@@ -448,14 +436,13 @@ public:
 		while (pos != std::string::npos)
 		{
 			S1 = S1.replace(pos, StringToReplace.length(), ReplaceTo);
-			pos = S1.find(StringToReplace); //find next
-
+			pos = S1.find(StringToReplace); 
 		}
 
 		return S1;
 	}
 
-	string ReplaceWord(string StringToReplace, string ReplaceTo) //I don't know why we didn't make it void like other string functions
+	string ReplaceWord(string StringToReplace, string ReplaceTo)
 	{
 		return ReplaceWord(_Value, StringToReplace, ReplaceTo);
 	}
@@ -479,6 +466,5 @@ public:
 	{
 		_Value = RemovePunctuations(_Value);
 	}
-
 
 };
